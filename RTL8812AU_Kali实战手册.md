@@ -52,8 +52,8 @@ sudo bash setup_reverselab.sh
 以及 RTL8812AU 驱动 `realtek-rtl88xxau-dkms`。
 
 ### 第 2 步：VirtualBox 配 USB 直通（宿主机 Windows 上做，已写好 `add_usb_filter.ps1`）
-- 需要 VirtualBox **Extension Pack**（支持 USB 3.0 直通）。没装就先装。
-- 设 ReverseLab 的 USB 控制器为 **USB 3.0 (xHCI)**。
+- ReverseLab 的 USB 控制器已设为 **USB 2.0 (EHCI)**——**无需 Extension Pack** 即可直通（RTL8812AU 跑 USB2 速度完全够用）。想上 USB 3.0 速度再装 Extension Pack（可选，非必需）。
+- （早期方案配过 USB 3.0/xHCI，但 Extension Pack 官方 7.2.14 下载路径 404，故改 EHCI 一劳永逸。）
 - 加一条 USB 设备过滤器：`Vendor ID 0bda` / `Product ID 8812`（RTL8812AU）。
   这样网卡一插，自动进 VM，不用手动选。
 ```powershell
